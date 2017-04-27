@@ -23,7 +23,7 @@ public class Hairsoftproject extends Application {
         
         Scene scene = new Scene(root);
         
-        primaryStage.setTitle("Software HairSoft");
+        primaryStage.setTitle("Software HairSoft LTDA");
         primaryStage.setScene(scene);
         primaryStage.show();
         primaryStage.setResizable(false);
