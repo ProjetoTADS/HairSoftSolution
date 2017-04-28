@@ -31,7 +31,7 @@ public class TelaInicialController implements Initializable {
     @FXML
     void cadastraCliente(){
         stack.getChildren().clear();
-        stack.getChildren().add(getNode("cadastrarNovo.fxml"));
+        stack.getChildren().add(getNode("listaClientes.fxml"));
     }
     
     @FXML
