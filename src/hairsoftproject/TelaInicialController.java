@@ -21,7 +21,7 @@ import javafx.scene.layout.AnchorPane;
 public class TelaInicialController implements Initializable {
 
     @FXML
-    private AnchorPane stack;
+    public AnchorPane stack;
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -69,6 +69,7 @@ public class TelaInicialController implements Initializable {
         stack.getChildren().clear();
     }
     
+  
     public Node getNode(String node){
         Node no = null;
         try {
