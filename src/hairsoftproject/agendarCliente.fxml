@@ -5,7 +5,29 @@
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="384.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hairsoftproject.AgendarClienteController">
-          <Label layoutX="206.0" layoutY="175.0" text="AGENDAR CLIENTE - TELA" />
+<AnchorPane id="AnchorPane" prefHeight="456.0000999999975" prefWidth="618.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="hairsoftproject.AgendarClienteController">
+  <Text fontSmoothingType="GRAY" layoutX="173.0" layoutY="34.0" stroke="BLACK" strokeType="OUTSIDE" strokeWidth="0.0" text="AGENDAR CLIENTE" textAlignment="LEFT" wrappingWidth="0.0">
+    <font>
+      <Font name="Courier New" size="28.0" />
+    </font>
+  </Text>
+  <Label layoutX="28.0" layoutY="75.0" prefHeight="20.0" prefWidth="57.0" text="ID Cliente:" />
+  <TextField layoutX="85.0" layoutY="75.0" prefHeight="23.0" prefWidth="121.0" />
+  <Label layoutX="226.0" layoutY="75.0" prefHeight="20.0" prefWidth="47.0" text="Nome:" />
+  <TextField layoutX="264.0" layoutY="75.0" prefHeight="23.0" prefWidth="300.0" />
+  <Label graphicTextGap="4.0" layoutX="28.0" layoutY="133.0" prefHeight="23.0" prefWidth="121.0" text="Serviços oferecidos:" textOverrun="CENTER_ELLIPSIS" underline="false" wrapText="false" />
+  <CheckBox layoutX="28.0" layoutY="173.0" mnemonicParsing="false" text="Corte Masculino" />
+  <CheckBox layoutX="28.0" layoutY="212.0" mnemonicParsing="false" text="Corte Feminino" />
+  <CheckBox layoutX="28.0" layoutY="249.0" mnemonicParsing="false" text="Chapinha" />
+  <CheckBox layoutX="173.0" layoutY="173.0" mnemonicParsing="false" text="Progressiva" />
+  <CheckBox layoutX="292.0" layoutY="173.0" mnemonicParsing="false" text="Pedicure" />
+  <CheckBox layoutX="171.0" layoutY="212.0" mnemonicParsing="false" text="Platinação" />
+  <CheckBox layoutX="171.0" layoutY="249.0" mnemonicParsing="false" text="Manicure" />
+  <CheckBox layoutX="292.0" layoutY="212.0" mnemonicParsing="false" text="Sombrancelhas" />
+  <CheckBox layoutX="292.0" layoutY="249.0" mnemonicParsing="false" text="Dia da Noiva" />
+  <Label layoutX="28.0" layoutY="324.0" text="Observações" />
+  <Button layoutX="529.0" layoutY="346.0" mnemonicParsing="false" prefHeight="96.0" prefWidth="75.0" text="Agendar" />
+  <TextArea layoutX="26.0" layoutY="346.0" prefHeight="96.0" prefWidth="496.0" wrapText="true" />
 </AnchorPane>

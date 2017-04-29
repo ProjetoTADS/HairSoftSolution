@@ -1,50 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.image.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hairsoftproject.TelaInicialController">
-   <children>
-      <VBox prefHeight="400.0" prefWidth="600.0">
-         <children>
-            <MenuBar>
-              <menus>
-                  <Menu mnemonicParsing="false" text="INICIO">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#home" text="TELA INICIAL" />
-                     </items></Menu>
-                <Menu mnemonicParsing="false" text="AGENDAR">
-                  <items>
-                    <MenuItem mnemonicParsing="false" onAction="#agendaCliente" text="AGENDAR CLIENTE" />
-                        <MenuItem mnemonicParsing="false" onAction="#visualizaAgenda" text="VISUALIZAR AGENDA" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="CONTROLE">
-                  <items>
-                    <MenuItem mnemonicParsing="false" onAction="#cadastraCliente" text="CADASTRAR CLIENTE" />
-                        <MenuItem mnemonicParsing="false" onAction="#verGrafico" text="VISUALIZAR GRÁFICO" />
-                        <MenuItem mnemonicParsing="false" onAction="#geraPDF" text="GERAR PDF" />
-                  </items>
-                </Menu>
-                <Menu mnemonicParsing="false" text="AJUDA">
-                     <items>
-                        <MenuItem mnemonicParsing="false" onAction="#ajuda" text="Sobre o Software" />
-                     </items></Menu>
-              </menus>
-            </MenuBar>
-            <AnchorPane fx:id="stack" prefHeight="384.0" prefWidth="600.0">
-               <children>
-                  <ImageView fitHeight="195.0" fitWidth="387.0" layoutX="100.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
-                     <image>
-                        <Image url="@background.png" />
-                     </image></ImageView>
-               </children>
-            </AnchorPane>
-         </children>
-      </VBox>
-   </children>
+<AnchorPane id="AnchorPane" prefHeight="486.0" prefWidth="634.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="hairsoftproject.TelaInicialController">
+  <children>
+    <VBox layoutX="0.0" layoutY="0.0" prefHeight="486.0" prefWidth="634.0">
+      <children>
+        <MenuBar prefWidth="634.0">
+          <menus>
+            <Menu mnemonicParsing="false" text="INICIO">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#home" text="TELA INICIAL" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="AGENDAR">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#agendaCliente" text="AGENDAR CLIENTE" />
+                <MenuItem mnemonicParsing="false" onAction="#visualizaAgenda" text="VISUALIZAR AGENDA" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="CONTROLE">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#cadastraCliente" text="CADASTRAR CLIENTE" />
+                <MenuItem mnemonicParsing="false" onAction="#verGrafico" text="VISUALIZAR GRÁFICO" />
+                <MenuItem mnemonicParsing="false" onAction="#geraPDF" text="GERAR PDF" />
+              </items>
+            </Menu>
+            <Menu mnemonicParsing="false" text="AJUDA">
+              <items>
+                <MenuItem mnemonicParsing="false" onAction="#ajuda" text="Sobre o Software" />
+              </items>
+            </Menu>
+          </menus>
+        </MenuBar>
+        <AnchorPane fx:id="stack" prefHeight="462.0" prefWidth="634.0">
+          <children>
+            <ImageView fitHeight="195.0" fitWidth="387.0" layoutX="100.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
+              <image>
+                <Image url="@background.png" />
+              </image>
+            </ImageView>
+          </children>
+        </AnchorPane>
+      </children>
+    </VBox>
+  </children>
 </AnchorPane>
