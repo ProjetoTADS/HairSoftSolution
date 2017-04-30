@@ -7,9 +7,9 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="486.0" prefWidth="634.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/2.2" fx:controller="hairsoftproject.TelaInicialController">
+<AnchorPane id="AnchorPane" prefHeight="384.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hairsoftproject.TelaInicialController">
   <children>
-    <VBox layoutX="0.0" layoutY="0.0" prefHeight="486.0" prefWidth="634.0">
+    <VBox layoutX="0.0" layoutY="0.0" prefHeight="384.0" prefWidth="600.0">
       <children>
         <MenuBar prefWidth="634.0">
           <menus>
@@ -38,7 +38,7 @@
             </Menu>
           </menus>
         </MenuBar>
-        <AnchorPane fx:id="stack" prefHeight="462.0" prefWidth="634.0">
+        <AnchorPane fx:id="stack" prefHeight="384.0" prefWidth="600.0">
           <children>
             <ImageView fitHeight="195.0" fitWidth="387.0" layoutX="100.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
               <image>
