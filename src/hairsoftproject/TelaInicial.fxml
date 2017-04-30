@@ -16,6 +16,7 @@
             <Menu mnemonicParsing="false" text="INICIO">
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#home" text="TELA INICIAL" />
+                        <MenuItem mnemonicParsing="false" onAction="#listaClientes" text="LISTA CLIENTE" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="AGENDAR">

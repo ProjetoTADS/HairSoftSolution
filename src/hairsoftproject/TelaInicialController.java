@@ -26,12 +26,18 @@ public class TelaInicialController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
+    } 
+    
+    @FXML
+    void listaClientes(){
+        stack.getChildren().clear();
+        stack.getChildren().add(getNode("listaClientes.fxml"));
+    }
     
     @FXML
     void cadastraCliente(){
         stack.getChildren().clear();
-        stack.getChildren().add(getNode("listaClientes.fxml"));
+        stack.getChildren().add(getNode("cadastrarCliente.fxml"));
     }
     
     @FXML
