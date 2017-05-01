@@ -34,7 +34,7 @@
             </Menu>
             <Menu mnemonicParsing="false" text="AJUDA">
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#ajuda" text="Sobre o Software" />
+                <MenuItem mnemonicParsing="false" onAction="#ajuda" text="Solicitar Ajuda" />
               </items>
             </Menu>
           </menus>
