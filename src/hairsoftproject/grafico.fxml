@@ -1,14 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.chart.*?>
 <?import java.lang.*?>
 <?import java.util.*?>
 <?import javafx.scene.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="384.0" prefWidth="600.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8" fx:controller="hairsoftproject.GraficoController">
+<AnchorPane id="AnchorPane" prefHeight="384.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hairsoftproject.GraficoController">
    <children>
-      <Label layoutX="212.0" layoutY="175.0" text="APRESENTAÇÃO GRÁFICA - TELA" />
+      <BarChart fx:id="barChart" layoutX="71.0" layoutY="24.0" prefHeight="353.0" prefWidth="458.0" title="Agendamento por mês">
+        <xAxis>
+          <CategoryAxis fx:id="CategoryAxis" side="BOTTOM" />
+        </xAxis>
+        <yAxis>
+          <NumberAxis fx:id="NumberAxis" side="LEFT" />
+        </yAxis>
+      </BarChart>
    </children>
 </AnchorPane>
