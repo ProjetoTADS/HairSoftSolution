@@ -21,7 +21,7 @@ public class GraficoController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
+        // TODO H
     }    
     
 }
