@@ -1,5 +1,6 @@
 package hairsoftproject;
 
+import hairsoftproject.DAO.ConexaoMySql;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
@@ -23,8 +24,9 @@ public class Hairsoftproject extends Application {
         primaryStage.setScene(scene);
         primaryStage.show();
         primaryStage.setResizable(false);
+        
+        ConexaoMySql.getConexaoMySql();
     }
-
   
     public static void main(String[] args) {
         launch(args);
