@@ -4,23 +4,27 @@ import java.io.Serializable;
 
 public class Cliente implements Serializable {
 
+//CRIANDO VARIAVEIS
     private int cdCliente;
     private String nome;
     private String cpf;
     private String endereco;
     private int celular;
 
+//METODO CONSTRUTOR DA CLASSE
     public Cliente(){
     }
-    
+
+ //METODO COM ASSINATURA DA CLASSE - PASSANDO PARAMETROS   
     public Cliente(int cdCliente, String nome, String cpf, int celular, String rua) {
+
         this.cdCliente = cdCliente;
         this.nome = nome;
         this.cpf = cpf;
         this.celular = celular;
         this.endereco = rua;
     }
-
+//GETERS E SETERS
     public int getCdCliente() {
         return cdCliente;
     }
