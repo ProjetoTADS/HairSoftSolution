@@ -60,7 +60,8 @@ public class VisualizaAgendaController implements Initializable {
             ResultSet myRs = Stmt.executeQuery("SELECT CL.NOME, DATE_FORMAT(AG.DATA_AGENDAMENTO, '%d-%m-%Y'), AG.SERVICO_DES, AG.PRECO"
                     + "                           FROM AGENDAMENTO AG,"
                     + "                                CLIENTE CL"
-                    + "                          WHERE CL.CLIENTE_ID = AG.CLIENTE_ID");
+                    + "                          WHERE CL.CLIENTE_ID = AG.CLIENTE_ID"
+                    + "                            AND IFNULL(CL.ATIVO, 'SIM') = 'SIM'");
             while (myRs.next()){
                 data.add(new visualizaAgendaLoader(myRs.getString(1), myRs.getString(2), myRs.getString(3), myRs.getString(4)));
             }
