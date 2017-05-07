@@ -81,7 +81,7 @@ public class ListaClientesController implements Initializable {
             //CRIA OBSERVABLE LIST 
             observableListClientes=FXCollections.observableArrayList();
             Statement sttmt = connection.createStatement();
-            //CRIA QYERY QUE BUSCARÁ DADOS NO BANCO
+            //CRIA QUERY QUE BUSCARÁ DADOS NO BANCO
             ResultSet query = sttmt.executeQuery("SELECT * FROM CLIENTE");
             //BUSCA OS DADOS DO BANCO E INSERE NO CONSTRUTOR CLIENTE
             while (query.next()){
@@ -102,6 +102,7 @@ public class ListaClientesController implements Initializable {
     }
     
     public void selecionarItemTableViewClientes(Cliente cliente){
+//CONDIÇÃO PARA LIMPAR LABELS CASO NÃO TENHA CLIENTE 'CLICADO'
         if(cliente != null){
         lblCodigo.setText(String.valueOf(cliente.getCdCliente()));
         lblNome.setText(cliente.getNome());
