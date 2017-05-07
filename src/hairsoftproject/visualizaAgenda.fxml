@@ -14,7 +14,7 @@
             <Font name="Book Antiqua" size="25.0" />
          </font>
       </Label>
-      <TableView id="tableAgen" fx:id="tableAgen" layoutX="16.0" layoutY="46.0" prefHeight="326.0" prefWidth="569.0">
+      <TableView id="tableAgen" fx:id="tableAgen" layoutX="16.0" layoutY="46.0" prefHeight="306.0" prefWidth="569.0">
         <columns>
           <TableColumn id="clienteTbl" fx:id="clienteTbl" prefWidth="123.0" text="Cliente" />
           <TableColumn id="dataTbl" fx:id="dataTbl" prefWidth="76.0" text="Data" />
