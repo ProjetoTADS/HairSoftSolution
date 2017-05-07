@@ -22,6 +22,7 @@ import javafx.scene.layout.AnchorPane;
  */
 public class TelaInicialController implements Initializable {
 
+    
     @FXML
     public AnchorPane stack;
     public ImageView img;

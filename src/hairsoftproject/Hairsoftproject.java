@@ -1,12 +1,14 @@
 package hairsoftproject;
 
 import hairsoftproject.DAO.ConexaoMySql;
+import static hairsoftproject.DAO.ConexaoMySql.status;
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -26,6 +28,13 @@ public class Hairsoftproject extends Application {
         primaryStage.setResizable(false);
         
         ConexaoMySql.getConexaoMySql();
+        
+        if(ConexaoMySql.getConexaoMySql() != null ){
+        JOptionPane.showMessageDialog(null, "Conectado com sucesso! Bem-vindo ao HairSoft Agenda");
+        }else{
+          JOptionPane.showMessageDialog(null, "Não foi possível conectar ao banco de dados! Verifique sua conexão.");
+        }
+        
     }
   
     public static void main(String[] args) {

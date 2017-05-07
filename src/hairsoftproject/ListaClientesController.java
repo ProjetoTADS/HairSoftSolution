@@ -4,6 +4,7 @@ import hairsoftproject.DAO.ConexaoMySql;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
@@ -16,12 +17,15 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javax.swing.JOptionPane;
 
 
 public class ListaClientesController implements Initializable {
 
-//INSTANCIANDO OBJETOS DA TELA
     
+    int cdCliente;
+    
+//INSTANCIANDO OBJETOS DA TELA  
     @FXML
    private TableView<Cliente> tableViewClientes;
    
@@ -56,33 +60,35 @@ public class ListaClientesController implements Initializable {
    private ObservableList<Cliente> observableListClientes;
  
 // FIM INSTANCIANDO OBJETOS DA TELA
-
+//INSTANCIANDO O OBJETO connection
+        Connection connection = hairsoftproject.DAO.ConexaoMySql.getConexaoMySql();
+        
    @Override
    //METODO INICIALIZADOR DA TELA
     public void initialize(URL url, ResourceBundle rb) {
-        //INICIA A CONEXÃO
-        ConexaoMySql.getConexaoMySql();
         
-        //CHAMA O METODO QUE CARREGA LISTA
+        
+//CHAMA O METODO QUE CARREGA LISTA
         CarregarListViewClientes();
         
         //ALTERA LABEL AO CLICAR NA CELULA
         tableViewClientes.getSelectionModel().selectedItemProperty().addListener(
          (observable, oldvalue, newValue) -> selecionarItemTableViewClientes(newValue)
         );
+        
+ 
+        
     }
 
     //METODO QUE CARREGA LISTA DE CLIENTES
     private void CarregarListViewClientes() {
         try {
             
-            //INSTANCIANDO O OBJETO connection
-            Connection connection = hairsoftproject.DAO.ConexaoMySql.getConexaoMySql();
             //CRIA OBSERVABLE LIST 
             observableListClientes=FXCollections.observableArrayList();
             Statement sttmt = connection.createStatement();
             //CRIA QUERY QUE BUSCARÁ DADOS NO BANCO
-            ResultSet query = sttmt.executeQuery("SELECT * FROM CLIENTE");
+            ResultSet query = sttmt.executeQuery("SELECT * FROM CLIENTE WHERE ATIVO = 'SIM'");
             //BUSCA OS DADOS DO BANCO E INSERE NO CONSTRUTOR CLIENTE
             while (query.next()){
                 observableListClientes.add(new Cliente(query.getInt(1), query.getString(2), query.getString(3),query.getInt(4), query.getString(5)));
@@ -116,6 +122,23 @@ public class ListaClientesController implements Initializable {
         lblCelular.setText("");
         lblEndereco.setText("");
         }
+        
+        cdCliente = cliente.getCdCliente();
     }
-    
+    @FXML
+    private void apagarCliente() throws SQLException{
+      
+        try{
+        Statement stm = connection.createStatement();
+        
+
+         stm.executeUpdate("UPDATE CLIENTE SET ATIVO = 'NAO' WHERE CLIENTE_ID = " + cdCliente);
+         JOptionPane.showMessageDialog(null, "Cliente Excluido!");
+         
+         CarregarListViewClientes();
+         
+        }catch(Exception e){
+                       JOptionPane.showMessageDialog(null, "Falha ao excluir cliente! Contate o suporte.");
+	}        
+    }
 }
