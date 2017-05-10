@@ -57,7 +57,7 @@ public class ConexaoMySql {
         return null;
         }catch(SQLException e){
             //SE NÃO CONECTAR AO BANCO
-            
+             JOptionPane.showMessageDialog(null, "Não foi possível conectar ao banco de dados! Verifique sua conexão.");
             System.out.println("Não foi possivel conectar.");
             
             return null;
