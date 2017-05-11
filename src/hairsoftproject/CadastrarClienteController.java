@@ -11,7 +11,9 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
 import java.util.ResourceBundle;
+import javafx.animation.KeyValue;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -67,25 +69,11 @@ public class CadastrarClienteController implements Initializable {
     @FXML
     private TextField txtEmail;
     @FXML
-    private TextField txtAtivo;
+    private CheckBox chkAtivo;
     
     public void validaCampos(){
-        
+      
     }
-    
-    public int pegarUltimoID() throws SQLException{
-    ReiniciarConexao();
-    String sql = "SELECT MAX(CLIENTE_ID) AS ULTIMOID FROM CLIENTE";
-    PreparedStatement stmt = (PreparedStatement) connection.prepareStatement(sql);
-    ResultSet rs = stmt.executeQuery();
-    rs.next();
-    int lastId = rs.getInt("ULTIMOID");
-
-	rs.close();
-	stmt.close();
-
-	return lastId;
-}
     
     public void desabilitaTela(){
         txtCodigo.setDisable(true);
@@ -101,7 +89,7 @@ public class CadastrarClienteController implements Initializable {
         txtEstado.setDisable(true);
         txtTelefone.setDisable(true);
         txtEmail.setDisable(true);
-        txtAtivo.setDisable(true);
+        chkAtivo.setDisable(true);
         btnAlterar.setDisable(true);
         btnSalvar.setDisable(true);
         btnAlterar.setDisable(true);
@@ -123,7 +111,7 @@ public class CadastrarClienteController implements Initializable {
         txtEstado.setDisable(false);
         txtTelefone.setDisable(false);
         txtEmail.setDisable(false);
-        txtAtivo.setDisable(false);
+        chkAtivo.setDisable(false);
         btnAlterar.setDisable(false);
         btnSalvar.setDisable(false);
         btnAlterar.setDisable(true);
@@ -141,7 +129,7 @@ public class CadastrarClienteController implements Initializable {
         rs.close();
 	stmt.close();
         
-        }catch(SQLException e){e.printStackTrace();JOptionPane.showMessageDialog(null, "Falha ao recuperar código! Contate o suporte.");}
+        }catch(SQLException e){e.printStackTrace();JOptionPane.showMessageDialog(null,"Aviso","Falha ao recuperar código! Contate o suporte.",JOptionPane.WARNING_MESSAGE);}
         finally{
         }
     }
@@ -161,7 +149,7 @@ public class CadastrarClienteController implements Initializable {
         txtEstado.setText("");
         txtTelefone.setText("");
         txtEmail.setText("");
-        txtAtivo.setText("");
+        chkAtivo.setSelected(false);
         btnNovo.setDisable(false);
         btnCancelar.setDisable(true);
         txtCodigo.setDisable(true);
@@ -177,13 +165,31 @@ public class CadastrarClienteController implements Initializable {
         txtEstado.setDisable(true);
         txtTelefone.setDisable(true);
         txtEmail.setDisable(true);
-        txtAtivo.setDisable(true);
+        chkAtivo.setDisable(true);
         btnAlterar.setDisable(true);
         btnSalvar.setDisable(true);
         btnAlterar.setDisable(true);
     }
 
     public void salvaDados() throws SQLException{      
+        
+        
+        if (txtNome.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Favor preencher o campo Nome!","Aviso",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (txtCPF.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Favor preencher o campo CPF!","Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }        
+        if (txtCEP.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Favor preencher o campo CEP!","Aviso",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (txtTelefone.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Favor preencher o campo Telefone!","Aviso",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         
         try{                 
         PreparedStatement stmt = connection.prepareStatement
@@ -192,7 +198,6 @@ public class CadastrarClienteController implements Initializable {
                 + ", BAIRRO, CEP, RG, EMAIL, ATIVO)"
                 + "VALUES(?,?,?,?,?,?,?,?,?,?,?,?,?)");
         
-        
         stmt.setString(1, txtCodigo.getText());
         stmt.setString(2, txtNome.getText());
         stmt.setString(3, txtCPF.getText());
@@ -200,21 +205,31 @@ public class CadastrarClienteController implements Initializable {
         stmt.setString(5, txtEndereco.getText());
         stmt.setString(6, txtCidade.getText());
         stmt.setString(7, txtEstado.getText());
-        stmt.setString(8, txtNumero.getText());
+        if (txtNumero.getText().isEmpty()){
+            stmt.setNull(8, Types.INTEGER);
+        }
+            else{
+                stmt.setInt(8, Integer.parseInt(txtNumero.getText()));
+            }        
         stmt.setString(9, txtBairro.getText());
         stmt.setString(10, txtCEP.getText());
         stmt.setString(11, txtRG.getText());
         stmt.setString(12, txtEmail.getText());
-        stmt.setString(13, txtAtivo.getText());        
+        if (chkAtivo.isSelected()){
+            stmt.setString(13, "SIM");
+        }
+            else
+                stmt.setString(13, "NAO");
+                
+        
         
         stmt.executeUpdate();        
         
-        JOptionPane.showMessageDialog(null, "Cliente Cadastrado!");
+        JOptionPane.showMessageDialog(null, "Cliente Cadastrado!", "Aviso", JOptionPane.INFORMATION_MESSAGE);
         cancelaCadastro();
-        stmt.close();
+        stmt.close();        
         
-        
-        }catch(SQLException e){e.printStackTrace(); JOptionPane.showMessageDialog(null, "Falha ao efetuar o cadastro do cliente! Contate o suporte.");}
+        }catch(SQLException e){e.printStackTrace(); JOptionPane.showMessageDialog(null, "Falha ao efetuar o cadastro do cliente! Contate o suporte.","Aviso",JOptionPane.WARNING_MESSAGE);}
         finally{
         }
         
