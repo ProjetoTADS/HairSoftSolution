@@ -58,7 +58,7 @@ public class Cliente implements Serializable {
     }
 
     public void setCelular(int telefone) {
-        this.celular = celular;
+        this.celular = telefone;
     }
 
     @Override
