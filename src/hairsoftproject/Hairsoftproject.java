@@ -27,14 +27,6 @@ public class Hairsoftproject extends Application {
         primaryStage.show();
         primaryStage.setResizable(false);
         
-        ConexaoMySql.getConexaoMySql();
-        
-        if(ConexaoMySql.getConexaoMySql() != null ){
-        JOptionPane.showMessageDialog(null, "Conectado com sucesso! Bem-vindo ao HairSoft Agenda");
-        }else{
-          JOptionPane.showMessageDialog(null, "Não foi possível conectar ao banco de dados! Verifique sua conexão.");
-        }
-        
     }
   
     public static void main(String[] args) {
