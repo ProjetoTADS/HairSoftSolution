@@ -9,14 +9,14 @@ public class Cliente implements Serializable {
     private String nome;
     private String cpf;
     private String endereco;
-    private int celular;
+    private String celular;
 
 //METODO CONSTRUTOR DA CLASSE
     public Cliente(){
     }
 
  //METODO COM ASSINATURA DA CLASSE - PASSANDO PARAMETROS   
-    public Cliente(int cdCliente, String nome, String cpf, int celular, String rua) {
+    public Cliente(int cdCliente, String nome, String cpf, String celular, String rua) {
 
         this.cdCliente = cdCliente;
         this.nome = nome;
@@ -49,7 +49,7 @@ public class Cliente implements Serializable {
         this.cpf = cpf;
     }
     
-    public int getCelular() {
+    public String getCelular() {
         return celular;
     }
     
@@ -57,7 +57,7 @@ public class Cliente implements Serializable {
         return endereco;
     }
 
-    public void setCelular(int telefone) {
+    public void setCelular(String telefone) {
         this.celular = telefone;
     }
 

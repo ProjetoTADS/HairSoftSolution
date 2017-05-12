@@ -99,7 +99,7 @@ public class ListaClientesController implements Initializable {
            ResultSet query = sttmt.executeQuery("SELECT * FROM CLIENTE WHERE ATIVO = 'SIM'");
             //BUSCA OS DADOS DO BANCO E INSERE NO CONSTRUTOR CLIENTE
             while (query.next()){
-        observableListClientes.add(new Cliente(query.getInt(1), query.getString(2), query.getString(3),query.getInt(4), query.getString(5)));
+        observableListClientes.add(new Cliente(query.getInt(1), query.getString(2), query.getString(3),query.getString(4), query.getString(5)));
           
             }
         }//FIM DO TRY
