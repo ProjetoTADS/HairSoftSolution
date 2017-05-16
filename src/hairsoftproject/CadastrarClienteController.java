@@ -14,12 +14,15 @@ import java.sql.SQLException;
 import java.sql.Types;
 import java.util.ResourceBundle;
 import javafx.animation.KeyValue;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 
@@ -63,7 +66,7 @@ public class CadastrarClienteController implements Initializable {
     @FXML
     private TextField txtCidade;
     @FXML
-    private TextField txtEstado;
+    private ComboBox cboEstado;
     @FXML
     private TextField txtTelefone;
     @FXML
@@ -71,7 +74,11 @@ public class CadastrarClienteController implements Initializable {
     @FXML
     private CheckBox chkAtivo;
     
-    public void validaCampos(){
+    public void carregaCampos(){
+        
+    ObservableList<String> list = FXCollections.observableArrayList("RO","AC","AM","RR","PA","AP","TO","MA","PI","CE","RN","PB","PE","AL","SE","BA","MG","ES","RJ","SP","PR","SC","RS","MS","MT","GO","DF");
+    cboEstado.setItems(list);
+     
       
     }
     
@@ -86,7 +93,7 @@ public class CadastrarClienteController implements Initializable {
         txtCompl.setDisable(true);
         txtBairro.setDisable(true);
         txtCidade.setDisable(true);
-        txtEstado.setDisable(true);
+        cboEstado.setDisable(true);
         txtTelefone.setDisable(true);
         txtEmail.setDisable(true);
         chkAtivo.setDisable(true);
@@ -108,7 +115,7 @@ public class CadastrarClienteController implements Initializable {
         txtBairro.setDisable(false);
         txtCEP.setDisable(false);
         txtCidade.setDisable(false);
-        txtEstado.setDisable(false);
+        cboEstado.setDisable(false);
         txtTelefone.setDisable(false);
         txtEmail.setDisable(false);
         chkAtivo.setDisable(false);
@@ -146,7 +153,7 @@ public class CadastrarClienteController implements Initializable {
         txtBairro.setText("");
         txtCEP.setText("");
         txtCidade.setText("");
-        txtEstado.setText("");
+        //cboEstado.setText("");
         txtTelefone.setText("");
         txtEmail.setText("");
         chkAtivo.setSelected(false);
@@ -162,7 +169,7 @@ public class CadastrarClienteController implements Initializable {
         txtCompl.setDisable(true);
         txtBairro.setDisable(true);
         txtCidade.setDisable(true);
-        txtEstado.setDisable(true);
+        cboEstado.setDisable(true);
         txtTelefone.setDisable(true);
         txtEmail.setDisable(true);
         chkAtivo.setDisable(true);
@@ -171,8 +178,7 @@ public class CadastrarClienteController implements Initializable {
         btnAlterar.setDisable(true);
     }
 
-    public void salvaDados() throws SQLException{      
-        
+    public void salvaDados() throws SQLException{        
         
         if (txtNome.getText().equals("")){
             JOptionPane.showMessageDialog(null, "Favor preencher o campo Nome!","Aviso",JOptionPane.WARNING_MESSAGE);
@@ -204,7 +210,7 @@ public class CadastrarClienteController implements Initializable {
         stmt.setString(4, txtTelefone.getText());
         stmt.setString(5, txtEndereco.getText());
         stmt.setString(6, txtCidade.getText());
-        stmt.setString(7, txtEstado.getText());
+        stmt.setString(7, (String) cboEstado.getValue());  
         if (txtNumero.getText().isEmpty()){
             stmt.setNull(8, Types.INTEGER);
         }
@@ -219,9 +225,7 @@ public class CadastrarClienteController implements Initializable {
             stmt.setString(13, "SIM");
         }
             else
-                stmt.setString(13, "NAO");
-                
-        
+                stmt.setString(13, "NAO");        
         
         stmt.executeUpdate();        
         
@@ -257,7 +261,8 @@ public class CadastrarClienteController implements Initializable {
     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        desabilitaTela();
+        carregaCampos();
+        desabilitaTela();        
         
     }     
 }
