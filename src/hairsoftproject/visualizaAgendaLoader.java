@@ -1,17 +1,10 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package hairsoftproject;
 
+//stLmpp
+
+package hairsoftproject;
 import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
-/**
- *
- * @author guist
- */
 public class visualizaAgendaLoader {
     private final StringProperty cliente;
     private final StringProperty data;
@@ -44,8 +37,14 @@ public class visualizaAgendaLoader {
     public void setData(String value){
         data.set(value);
     }
+    public void setServicos(String value){
+        servicos.set(value);
+    }
+    public void setPreco(String value){
+        preco.set(value);
+    }
     //Property values
-    public StringProperty cienteProperty(){
+    public StringProperty clienteProperty(){
         return cliente;
     }
     public StringProperty dataProperty(){

@@ -1,8 +1,5 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+//stLmpp
+
 package hairsoftproject;
 
 import java.net.URL;
@@ -12,19 +9,12 @@ import java.sql.*;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
 
-/**
- * FXML Controller class
- *
- * @author Dani
- */
 public class VisualizaAgendaController implements Initializable {
     
     @FXML
@@ -37,26 +27,19 @@ public class VisualizaAgendaController implements Initializable {
     private TableColumn<visualizaAgendaLoader, String> servicosTbl;
     @FXML
     private TableColumn<visualizaAgendaLoader, String> precoTbl;
-    @FXML
-    private Button carregaBtn;
 
     private ObservableList<visualizaAgendaLoader>data;
     
+    Connection MyConn = hairsoftproject.DAO.ConexaoMySql.getConexaoMySql();
+    
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        
-    }    
-    //Ação do botão Carregar
-    @FXML
-    private void loadDataBaseAgen(ActionEvent event) {
+        loadDataBaseAgen();
+    }
+    private void loadDataBaseAgen() {
         try {
-            //Connection MyConn = DriverManager.getConnection("jdbc:mysql://hairsoft.mysql.uhserver.com/hairsoft", "hairsoft", "uninove+1");
-            //Conexão com BD através da Classe ConexaoMySql
-            Connection MyConn = hairsoftproject.DAO.ConexaoMySql.getConexaoMySql();
-            //Criando um ArrayList para armazenar os dados do banco
             data=FXCollections.observableArrayList();
             Statement Stmt = MyConn.createStatement();
-            //Armazenando o resultado dentro do ArrayList
             ResultSet myRs = Stmt.executeQuery("SELECT CL.NOME, DATE_FORMAT(AG.DATA_AGENDAMENTO, '%d-%m-%Y'), AG.SERVICO_DES, AG.PRECO"
                     + "                           FROM AGENDAMENTO AG,"
                     + "                                CLIENTE CL"
