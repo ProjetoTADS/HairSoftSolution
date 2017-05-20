@@ -1,5 +1,3 @@
-<!--stLmpp -->
-
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.text.*?>
@@ -16,13 +14,15 @@
             <Font name="Book Antiqua" size="25.0" />
          </font>
       </Label>
-      <TableView id="tableAgen" fx:id="tableAgen" layoutX="16.0" layoutY="46.0" prefHeight="306.0" prefWidth="569.0">
+      <TableView id="tableAgen" fx:id="tableAgen" layoutX="16.0" layoutY="46.0" prefHeight="326.0" prefWidth="569.0">
         <columns>
           <TableColumn id="clienteTbl" fx:id="clienteTbl" prefWidth="123.0" text="Cliente" />
           <TableColumn id="dataTbl" fx:id="dataTbl" prefWidth="76.0" text="Data" />
-            <TableColumn fx:id="servicosTbl" prefWidth="310.0" text="Serviços" />
-            <TableColumn fx:id="precoTbl" prefWidth="58.0" text="Preço" />
+            <TableColumn fx:id="servicosTbl" prefWidth="303.0" text="Serviços" />
+            <TableColumn fx:id="precoTbl" minWidth="0.0" prefWidth="68.0" text="Preço" />
+            <TableColumn fx:id="agenId" prefWidth="72.0" text="AgenId" />
         </columns>
       </TableView>
+      <Button fx:id="deletarBtn" layoutX="529.0" layoutY="18.0" mnemonicParsing="false" onAction="#deletarAgen" prefHeight="25.0" prefWidth="57.0" text="Deletar" />
    </children>
 </AnchorPane>

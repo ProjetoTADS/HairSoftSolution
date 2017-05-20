@@ -6,18 +6,23 @@ import javafx.beans.property.SimpleStringProperty;
 import javafx.beans.property.StringProperty;
 
 public class visualizaAgendaLoader {
+    private final StringProperty agen;
     private final StringProperty cliente;
     private final StringProperty data;
     private final StringProperty servicos;
     private final StringProperty preco;
     
-    public visualizaAgendaLoader(String cliente, String data, String servicos, String preco){
+    public visualizaAgendaLoader(String agen, String cliente, String data, String servicos, String preco){
         this.cliente = new SimpleStringProperty(cliente);
         this.data = new SimpleStringProperty(data);
         this.servicos = new SimpleStringProperty(servicos);
         this.preco = new SimpleStringProperty(preco);
+        this.agen = new SimpleStringProperty(agen);
     }
     //Getters
+    public String getAgen(){
+        return agen.get();
+    }
     public String getCliente(){
         return cliente.get();
     }
@@ -31,6 +36,9 @@ public class visualizaAgendaLoader {
         return preco.get();
     }
     //Setters
+    public void setAgen(String value){
+        agen.set(value);
+    }
     public void setCliente(String value){
         cliente.set(value);
     }
@@ -44,6 +52,9 @@ public class visualizaAgendaLoader {
         preco.set(value);
     }
     //Property values
+    public StringProperty agenProperty(){
+        return agen;
+    }
     public StringProperty clienteProperty(){
         return cliente;
     }
