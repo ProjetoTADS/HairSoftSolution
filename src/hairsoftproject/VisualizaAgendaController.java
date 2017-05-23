@@ -2,6 +2,7 @@
 
 package hairsoftproject;
 
+import static hairsoftproject.DAO.ConexaoMySql.fecharConexao;
 import java.net.URL;
 import java.sql.*;
 import java.util.ResourceBundle;
@@ -75,6 +76,7 @@ public class VisualizaAgendaController implements Initializable {
         //Mostrando os dados
         tableAgen.setItems(null);
         tableAgen.setItems(data);
+        fecharConexao();
     }
     public void selecionarItem(visualizaAgendaLoader visualizaAgendaLoader){
         agen_id = visualizaAgendaLoader.getAgen();

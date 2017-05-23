@@ -68,12 +68,7 @@ public class TelaInicialController implements Initializable {
     stack.getChildren().add(getNode("visualizaAgenda.fxml"));
     }
     
-    @FXML
-    void geraPDF(){
-    stack.getChildren().clear();
-    stack.getChildren().add(getNode("geraPDF.fxml"));
-    }
-    
+
     @FXML
     void ajuda(){
     stack.getChildren().clear();

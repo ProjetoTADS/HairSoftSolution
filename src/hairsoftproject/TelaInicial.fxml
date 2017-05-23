@@ -29,7 +29,6 @@
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#cadastraCliente" text="CADASTRAR CLIENTE" />
                 <MenuItem mnemonicParsing="false" onAction="#verGrafico" text="VISUALIZAR GRÁFICO" />
-                <MenuItem mnemonicParsing="false" onAction="#geraPDF" text="GERAR PDF" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="AJUDA">

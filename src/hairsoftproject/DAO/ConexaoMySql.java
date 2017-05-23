@@ -71,7 +71,7 @@ public class ConexaoMySql {
     
     //FECHANDO A CONEXÃO
     
-    public static boolean FecharConexao(){
+    public static boolean fecharConexao(){
         try{
             ConexaoMySql.getConexaoMySql().close();
             
@@ -84,7 +84,7 @@ public class ConexaoMySql {
     //INICIA A CONEXÃO
     
     public static java.sql.Connection ReiniciarConexao(){
-        FecharConexao();
+        fecharConexao();
         
         return ConexaoMySql.getConexaoMySql();
     }

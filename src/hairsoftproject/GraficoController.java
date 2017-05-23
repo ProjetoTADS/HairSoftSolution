@@ -56,7 +56,7 @@ public class GraficoController implements Initializable {
     public void atualizaAuto() throws SQLException{
         /*SE O BOTÃO ESTIVER SELECIONADO*/
             try {
-                System.out.println("Antes: " + data);
+      
                 
                 data.clear();
                 pieChart.getData().clear();
@@ -64,7 +64,7 @@ public class GraficoController implements Initializable {
                 carregaDadosBanco();
                 
                 pieChart.getData().addAll(data);      	
-                System.out.println("Depois: " + data);
+        
                 
             } catch (SQLException ex) {
                 Logger.getLogger(GraficoController.class.getName()).log(Level.SEVERE, null, ex);
