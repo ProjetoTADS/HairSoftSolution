@@ -145,7 +145,7 @@ public class ListaClientesController implements Initializable {
         
 
          stm.executeUpdate("UPDATE CLIENTE SET ATIVO = 'NAO' WHERE CLIENTE_ID = " + cdCliente);
-         stm.executeUpdate("UPDATE AGENDAMENTO SET ATIVO = 'NAO';");
+         stm.executeUpdate("UPDATE AGENDAMENTO SET ATIVO = 'NAO' WHERE CLIENTE_ID = " + cdCliente);
          JOptionPane.showMessageDialog(null, "Cliente Excluido!");
          
          CarregarListViewClientes();
