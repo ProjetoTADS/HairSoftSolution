@@ -75,8 +75,8 @@ public class GraficoController implements Initializable {
         try{
         Statement stt = conexao.createStatement();
         stt.executeUpdate("SET lc_time_names = 'pt_BR';");
-        ResultSet query = stt.executeQuery("SELECT UPPER (DATE_FORMAT( DATA_AGENDAMENTO, '%M')) as MES, COUNT(MONTH(DATA_AGENDAMENTO)) AS OCORRENCIAS FROM AGENDAMENTO GROUP BY MONTH(DATA_AGENDAMENTO);");
-        while (query.next()){
+        ResultSet query = stt.executeQuery("SELECT UPPER (DATE_FORMAT(DATA_AGENDAMENTO, '%M')) as MES, COUNT(MONTH(DATA_AGENDAMENTO)) AS OCORRENCIAS FROM AGENDAMENTO WHERE ATIVO = 'SIM' GROUP BY MONTH(DATA_AGENDAMENTO);");
+           while (query.next()){
         data.add(new PieChart.Data(query.getString(1), query.getInt(2)));
         }
         
