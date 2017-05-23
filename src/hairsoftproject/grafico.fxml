@@ -9,13 +9,7 @@
 
 <AnchorPane id="AnchorPane" prefHeight="384.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hairsoftproject.GraficoController">
    <children>
-      <BarChart fx:id="barChart" layoutX="71.0" layoutY="24.0" prefHeight="353.0" prefWidth="458.0" title="Agendamento por mês">
-        <xAxis>
-          <CategoryAxis fx:id="CategoryAxis" side="BOTTOM" />
-        </xAxis>
-        <yAxis>
-          <NumberAxis fx:id="NumberAxis" side="LEFT" />
-        </yAxis>
-      </BarChart>
+      <PieChart fx:id="pieChart" labelLineLength="35.0" layoutX="16.0" layoutY="7.0" prefHeight="351.0" prefWidth="573.0" title="GRÁFICO AGENDAMENTOS" />
+      <Button fx:id="btnAuto" cache="true" cacheHint="SCALE_AND_ROTATE" layoutX="16.0" layoutY="30.0" onAction="#atualizaAuto" pickOnBounds="false" text="ATUALIZAR" />
    </children>
 </AnchorPane>

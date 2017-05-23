@@ -1,6 +1,7 @@
 package hairsoftproject;
 
 import hairsoftproject.DAO.ConexaoMySql;
+import static hairsoftproject.DAO.ConexaoMySql.fecharConexao;
 import java.net.URL;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -114,6 +115,8 @@ public class ListaClientesController implements Initializable {
             
         //INSERE NOME E CPF NA TABLEVIEW
         tableViewClientes.setItems(observableListClientes);
+        
+             fecharConexao();
     }
     
     public void selecionarItemTableViewClientes(Cliente cliente){
