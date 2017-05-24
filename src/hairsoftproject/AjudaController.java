@@ -13,11 +13,6 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javax.swing.JOptionPane;
 
-/**
- * FXML Controller class
- *
- * @author
- */
 public class AjudaController implements Initializable {
 
     @FXML
@@ -60,7 +55,7 @@ public class AjudaController implements Initializable {
         
         limpar();
        
-       JOptionPane.showMessageDialog(null, "Enviado com sucesso!","ENVIO REALIZADO!",JOptionPane.WARNING_MESSAGE); 
+       JOptionPane.showMessageDialog(null, "Enviado com sucesso!","Envio realizado!",JOptionPane.WARNING_MESSAGE); 
        stateVar.close();
        fecharConexao();
        }catch(SQLException e){e.printStackTrace(); JOptionPane.showMessageDialog(null, "Problema ao enviar sua solicitação! Tente novamente! ","Erro no Envio",JOptionPane.WARNING_MESSAGE);}      
