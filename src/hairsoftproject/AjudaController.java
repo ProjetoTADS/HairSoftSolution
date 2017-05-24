@@ -16,75 +16,54 @@ import javax.swing.JOptionPane;
 /**
  * FXML Controller class
  *
- * @author Eduardo Dias
+ * @author Jonatan Vargas
  */
 public class AjudaController implements Initializable {
 
-    /*INSTANCIANDO COMPONENTES DA TELA*/
-       
+    @FXML
+    private TextField lbNome;
+    @FXML
+    private TextField lbEmail;
+    @FXML
+    private TextField lbTelef;
+    @FXML
+    private TextField lbAssunto;
+    @FXML
+    private TextArea lbMensag;
     
-    @FXML
-    private TextField txtNome;
-    
-    @FXML
-    private TextField txtEmail;
-
-    @FXML
-    private TextField txtCelular;
-
-    @FXML
-    private TextField txtAssunto;
-
-    @FXML
-    private TextArea txtMensagem;
-    
-    Connection conexao = hairsoftproject.DAO.ConexaoMySql.getConexaoMySql();
-    /*MÉTODO VERIFICA CAMPO VAZIO*/
-    @FXML
-    public boolean verificaVazio(){
+    Connection connection = hairsoftproject.DAO.ConexaoMySql.getConexaoMySql();
         
-        if(txtMensagem.getText().equals("") || txtNome.getText().equals("") || txtEmail.getText().equals("") || txtCelular.getText().equals("") || txtAssunto.getText().equals("")){
-            JOptionPane.showMessageDialog(null, "Preencha todos os campos corretamente!", "ATENÇÃO!",JOptionPane.WARNING_MESSAGE);
-           return false;
-        }
-        return true;
+      public void limpar(){
+        lbNome.setText("");
+        lbEmail.setText("");
+        lbTelef.setText("");
+        lbAssunto.setText("");
+        lbMensag.setText("");
     }
     
-    public void limpaCampos(){
-        txtNome.setText("");
-        txtEmail.setText("");
-        txtCelular.setText("");
-        txtAssunto.setText("");
-        txtMensagem.setText("");
-    }
-    
-    
     @FXML
-    public void solicitaSuporteEnviar(){
+    public void SolicitarAjuda(){
         
-        
-        if(verificaVazio() == false){
-            System.out.println("Mensagem não enviada! Campo vazio encontrado!");
-        }else{
-        
+        {
+     
             try{                 
-        PreparedStatement stateVar = conexao.prepareStatement
-                ("INSERT INTO SUPORTE (NOME, EMAIL, TELEFONE, ASSUNTO, MENSAGEM, DATA_HORA) VALUES(?,?,?,?,?,now())");
+        PreparedStatement stateVar = connection.prepareStatement                 
+        ("INSERT INTO SUPORTE (NOME, EMAIL, TELEFONE, ASSUNTO, MENSAGEM, DATA_HORA) VALUES(?,?,?,?,?,now())");
         
-        stateVar.setString(1, txtNome.getText());
-        stateVar.setString(2, txtEmail.getText());
-        stateVar.setString(3, txtCelular.getText());
-        stateVar.setString(4, txtAssunto.getText());
-        stateVar.setString(5, txtMensagem.getText());
+        stateVar.setString(1, lbNome.getText());
+        stateVar.setString(2, lbEmail.getText());
+        stateVar.setString(3, lbTelef.getText());
+        stateVar.setString(4, lbAssunto.getText());
+        stateVar.setString(5, lbMensag.getText());
   
-        stateVar.executeUpdate();/*EXECUTA A QUERY*/
+        stateVar.executeUpdate();
         
-        limpaCampos();/*LIMPA OS CAMPOS PREENCHIDOS*/
+        limpar();
        
-       JOptionPane.showMessageDialog(null, "MENSAGEM ENVIADA! AGUARDE NOSSO RETORNO ATRAVÉS DO SEU E-MAIL","ENVIO REALIZADO!",JOptionPane.WARNING_MESSAGE); 
+       JOptionPane.showMessageDialog(null, "Enviado com sucesso!","ENVIO REALIZADO!",JOptionPane.WARNING_MESSAGE); 
        stateVar.close();
        fecharConexao();
-       }catch(SQLException e){e.printStackTrace(); JOptionPane.showMessageDialog(null, "Houve um problema ao enviar sua solicitação! Contate o suporte por telefone!","Erro no Envio",JOptionPane.WARNING_MESSAGE);}      
+       }catch(SQLException e){e.printStackTrace(); JOptionPane.showMessageDialog(null, "Problema ao enviar sua solicitação! Tente novamente! ","Erro no Envio",JOptionPane.WARNING_MESSAGE);}      
        finally{
        }
     
