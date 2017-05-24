@@ -43,7 +43,7 @@ public class AjudaController implements Initializable {
      
             try{                 
         PreparedStatement stateVar = connection.prepareStatement                 
-        ("INSERT INTO SUPORTE (NOME, EMAIL, TELEFONE, ASSUNTO, MENSAGEM, DATA_HORA) VALUES(?,?,?,?,?,now())");
+        ("INSERT INTO SUPORTE (NOME, EMAIL, TELEFONE, ASSUNTO, MENSAGEM, DATA_HORA) VALUES(? ,? ,? ,? ,? ,now())");
         
         stateVar.setString(1, lbNome.getText());
         stateVar.setString(2, lbEmail.getText());
