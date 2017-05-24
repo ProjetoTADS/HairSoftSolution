@@ -16,7 +16,7 @@ import javax.swing.JOptionPane;
 /**
  * FXML Controller class
  *
- * @author Jonatan Vargas
+ * @author
  */
 public class AjudaController implements Initializable {
 
