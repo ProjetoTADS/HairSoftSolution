@@ -14,17 +14,16 @@
             <Font name="Book Antiqua" size="25.0" />
          </font>
       </Label>
-      <Label layoutX="101.0" layoutY="59.0" prefHeight="17.0" prefWidth="43.0" text="NOME:" />
-      <Label layoutX="102.0" layoutY="109.0" prefHeight="17.0" prefWidth="67.0" text="EMAIL:" />
-      <Label layoutX="102.0" layoutY="157.0" text="TELEFONE/CELULAR:" />
-      <TextField fx:id="txtNome" layoutX="101.0" layoutY="76.0" prefHeight="25.0" prefWidth="392.0" />
-      <TextField fx:id="txtEmail" layoutX="101.0" layoutY="126.0" prefHeight="25.0" prefWidth="392.0" />
-      <TextField fx:id="txtCelular" layoutX="101.0" layoutY="174.0" prefHeight="25.0" prefWidth="256.0" />
-      <TextField fx:id="txtAssunto" layoutX="101.0" layoutY="222.0" prefHeight="25.0" prefWidth="399.0" />
-      <Label layoutX="102.0" layoutY="253.0" text="MENSAGEM:" />
-      <Label layoutX="101.0" layoutY="205.0" text="ASSUNTO:" />
-      <TextArea fx:id="txtMensagem" layoutX="101.0" layoutY="270.0" prefHeight="84.0" prefWidth="399.0" />
-      <Button layoutX="508.0" layoutY="322.0" mnemonicParsing="false" onAction="#solicitaSuporteEnviar" prefHeight="32.0" prefWidth="84.0" text="ENVIAR" />
-      <Button layoutX="508.0" layoutY="280.0" mnemonicParsing="false" onAction="#limpaCampos" prefHeight="32.0" prefWidth="84.0" text="LIMPAR" />
+      <Label layoutX="35.0" layoutY="59.0" prefHeight="17.0" prefWidth="43.0" text="NOME:" />
+      <Label layoutX="35.0" layoutY="101.0" prefHeight="17.0" prefWidth="67.0" text="EMAIL:" />
+      <Label layoutX="35.0" layoutY="143.0" text="TELEFONE/CELULAR:" />
+      <TextField fx:id="lbNome" layoutX="33.0" layoutY="76.0" prefHeight="25.0" prefWidth="150.0" />
+      <TextField fx:id="lbEmail" layoutX="33.0" layoutY="118.0" prefHeight="25.0" prefWidth="150.0" />
+      <TextField fx:id="lbTelef" layoutX="33.0" layoutY="160.0" prefHeight="25.0" prefWidth="150.0" />
+      <TextField fx:id="lbAssunto" layoutX="33.0" layoutY="201.0" prefHeight="25.0" prefWidth="150.0" />
+      <Label layoutX="35.0" layoutY="226.0" text="MENSAGEM:" />
+      <Label layoutX="41.0" layoutY="184.0" text="ASSUNTO:" />
+      <TextArea fx:id="lbMensag" layoutX="35.0" layoutY="243.0" prefHeight="84.0" prefWidth="399.0" />
+      <Button layoutX="441.0" layoutY="277.0" mnemonicParsing="false" onAction="#SolicitarAjuda" prefHeight="50.0" prefWidth="110.0" text="Enviar Contato" />
    </children>
 </AnchorPane>
