@@ -23,6 +23,7 @@
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#agendaCliente" text="AGENDAR CLIENTE" />
                 <MenuItem mnemonicParsing="false" onAction="#visualizaAgenda" text="VISUALIZAR AGENDA" />
+                <MenuItem mnemonicParsing="false" onAction="#GerarRelatorio" text="GERAR RELATÓRIO"/>
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="CONTROLE">

@@ -5,8 +5,12 @@
  */
 package hairsoftproject;
 
+import com.itextpdf.text.BadElementException;
+import com.itextpdf.text.DocumentException;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -68,6 +72,11 @@ public class TelaInicialController implements Initializable {
     stack.getChildren().add(getNode("visualizaAgenda.fxml"));
     }
     
+    @FXML
+    void GerarRelatorio() throws SQLException, DocumentException, BadElementException, IOException{
+        RelatorioController relatorioController = new RelatorioController();
+        relatorioController.GerarRelatorio();
+    }
 
     @FXML
     void ajuda(){
