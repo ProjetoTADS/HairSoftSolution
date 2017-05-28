@@ -33,9 +33,10 @@ public class TelaInicialController implements Initializable {
     @FXML
     public AnchorPane stack;
     public ImageView img;
+
     
-  
-    
+        
+     
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
@@ -85,7 +86,7 @@ public class TelaInicialController implements Initializable {
     }
     
     @FXML
-    void home() throws FileNotFoundException{
+    void home(){
         stack.getChildren().clear();
     }
     

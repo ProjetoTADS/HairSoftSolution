@@ -113,8 +113,8 @@ public class AgendarClienteController implements Initializable {
         try{                 
         PreparedStatement stmt = MyConn.prepareStatement
                 ("INSERT INTO AGENDAMENTO "
-               + "(SERVICO_DES, CLIENTE_ID, DATA_AGENDAMENTO, DATA_CRIACAO, PRECO)"
-                + "VALUES(?,?,?,SYSDATE(),?)");
+               + "(SERVICO_DES, CLIENTE_ID, DATA_AGENDAMENTO, DATA_CRIACAO, PRECO, ATIVO)"
+                + "VALUES(?,?,?,SYSDATE(),?,'SIM')");
         
         stmt.setString(1, descTxt.getText());
         stmt.setString(2, txtCliente.getText());

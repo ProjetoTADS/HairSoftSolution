@@ -39,7 +39,10 @@ public class AjudaController implements Initializable {
     @FXML
     public void SolicitarAjuda(){
         
-        {
+      
+            if(lbNome.getText().equals("") || lbEmail.getText().equals("") || lbTelef.getText().equals("") || lbAssunto.getText().equals("") || lbMensag.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Existe campo vazio. Preencha todos os campos antes de enviar!","Atenção",JOptionPane.OK_OPTION);
+            }else{
      
             try{                 
         PreparedStatement stateVar = connection.prepareStatement                 
@@ -62,7 +65,8 @@ public class AjudaController implements Initializable {
        finally{
        }
     
-       }
+            }       
+     
     }
     
     @Override

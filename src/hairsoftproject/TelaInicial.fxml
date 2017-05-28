@@ -23,7 +23,7 @@
               <items>
                 <MenuItem mnemonicParsing="false" onAction="#agendaCliente" text="AGENDAR CLIENTE" />
                 <MenuItem mnemonicParsing="false" onAction="#visualizaAgenda" text="VISUALIZAR AGENDA" />
-                <MenuItem mnemonicParsing="false" onAction="#GerarRelatorio" text="GERAR RELATÓRIO"/>
+                <MenuItem mnemonicParsing="false" onAction="#GerarRelatorio" text="GERAR RELATÓRIO" />
               </items>
             </Menu>
             <Menu mnemonicParsing="false" text="CONTROLE">
@@ -34,20 +34,12 @@
             </Menu>
             <Menu mnemonicParsing="false" text="AJUDA">
               <items>
-                <MenuItem mnemonicParsing="false" onAction="#ajuda" text="Solicitar Ajuda" />
+                <MenuItem mnemonicParsing="false" onAction="#ajuda" text="SOLICITAR AJUDA" />
               </items>
             </Menu>
           </menus>
         </MenuBar>
-        <AnchorPane fx:id="stack" prefHeight="384.0" prefWidth="600.0">
-          <children>
-            <ImageView fitHeight="195.0" fitWidth="387.0" layoutX="100.0" layoutY="77.0" pickOnBounds="true" preserveRatio="true">
-              <image>
-                <Image url="@background.png" />
-              </image>
-            </ImageView>
-          </children>
-        </AnchorPane>
+        <AnchorPane fx:id="stack" prefHeight="384.0" prefWidth="600.0" style="-fx-background-image: url('hairsoftproject/background.png'); -fx-background-position: center; -fx-background-repeat: stretch;" />
       </children>
     </VBox>
   </children>

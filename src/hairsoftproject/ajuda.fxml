@@ -7,7 +7,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane id="AnchorPane" prefHeight="384.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hairsoftproject.AjudaController">
+<AnchorPane id="AnchorPane" prefHeight="384.0" prefWidth="600.0" style="-fx-background-color: #f9f9f9;" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="hairsoftproject.AjudaController">
    <children>
       <Label layoutX="110.0" layoutY="7.0" prefHeight="38.0" prefWidth="406.0" text="ENTRE EM CONTATO CONOSCO">
          <font>
@@ -17,13 +17,14 @@
       <Label layoutX="35.0" layoutY="59.0" prefHeight="17.0" prefWidth="43.0" text="NOME:" />
       <Label layoutX="35.0" layoutY="101.0" prefHeight="17.0" prefWidth="67.0" text="EMAIL:" />
       <Label layoutX="35.0" layoutY="143.0" text="TELEFONE/CELULAR:" />
-      <TextField fx:id="lbNome" layoutX="33.0" layoutY="76.0" prefHeight="25.0" prefWidth="150.0" />
-      <TextField fx:id="lbEmail" layoutX="33.0" layoutY="118.0" prefHeight="25.0" prefWidth="150.0" />
-      <TextField fx:id="lbTelef" layoutX="33.0" layoutY="160.0" prefHeight="25.0" prefWidth="150.0" />
-      <TextField fx:id="lbAssunto" layoutX="33.0" layoutY="201.0" prefHeight="25.0" prefWidth="150.0" />
+      <TextField fx:id="lbNome" layoutX="33.0" layoutY="76.0" prefHeight="25.0" prefWidth="553.0" promptText="INSIRIA SEU NOME" />
+      <TextField fx:id="lbEmail" layoutX="33.0" layoutY="118.0" prefHeight="25.0" prefWidth="360.0" promptText="INSIRA SEU E-MAIL" />
+      <TextField fx:id="lbTelef" layoutX="33.0" layoutY="160.0" prefHeight="25.0" prefWidth="360.0" promptText="INSIRA SEU TELEFONE OU CELULAR" />
+      <TextField fx:id="lbAssunto" layoutX="33.0" layoutY="201.0" prefHeight="25.0" prefWidth="553.0" promptText="QUAL O ASSUNTO DESTA MENSAGEM?" />
       <Label layoutX="35.0" layoutY="226.0" text="MENSAGEM:" />
       <Label layoutX="41.0" layoutY="184.0" text="ASSUNTO:" />
-      <TextArea fx:id="lbMensag" layoutX="35.0" layoutY="243.0" prefHeight="84.0" prefWidth="399.0" />
-      <Button layoutX="441.0" layoutY="277.0" mnemonicParsing="false" onAction="#SolicitarAjuda" prefHeight="50.0" prefWidth="110.0" text="Enviar Contato" />
+      <TextArea fx:id="lbMensag" layoutX="35.0" layoutY="243.0" prefHeight="118.0" prefWidth="474.0" promptText="EXPLIQUE-NOS OQUE OCORREU COM O SISTEMA." />
+      <Button layoutX="517.0" layoutY="243.0" mnemonicParsing="false" onAction="#SolicitarAjuda" prefHeight="56.0" prefWidth="67.0" text="ENVIAR" />
+      <Button fx:id="btnLimpa" layoutX="517.0" layoutY="305.0" mnemonicParsing="false" onAction="#limpar" prefHeight="56.0" prefWidth="67.0" text="LIMPAR" />
    </children>
 </AnchorPane>
