@@ -14,7 +14,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
-import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javax.swing.JOptionPane;
 
@@ -57,7 +56,8 @@ public class VisualizaAgendaController implements Initializable {
                     + "                           FROM AGENDAMENTO AG,"
                     + "                                CLIENTE CL"
                     + "                          WHERE CL.CLIENTE_ID = AG.CLIENTE_ID"
-                    + "                            AND IFNULL(CL.ATIVO, 'SIM') = 'SIM'");
+                    + "                            AND IFNULL(CL.ATIVO, 'SIM') = 'SIM'"
+                    + "                            AND AG.DATA_AGENDAMENTO >= SYSDATE()");
             while (myRs.next()){
                 data.add(new visualizaAgendaLoader(myRs.getString(1), myRs.getString(2), myRs.getString(3), myRs.getString(4), myRs.getString(5)));
             }

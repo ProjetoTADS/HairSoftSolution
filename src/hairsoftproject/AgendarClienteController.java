@@ -105,8 +105,38 @@ public class AgendarClienteController implements Initializable {
             }
         });
     }
+    
+    public void verificaCampos(){
+        if (cpfTxt.getValue()== null){
+            JOptionPane.showMessageDialog(null, "Favor selecionar um CPF!","Aviso",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (nomeTxt.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Nome não cadastrado na base de dados, contate o suporte!","Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }        
+        if (descTxt.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Favor preencher o campo Serviços!","Aviso",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (txtCliente.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Erro no ID do cliente, favor entrar em contato com o suporte!","Aviso",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (dataAgen.getValue()== null){
+            JOptionPane.showMessageDialog(null, "Favor preencher o campo Data de agendamento!","Aviso",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+        if (precoTxt.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Favor preencher o campo Preço!","Aviso",JOptionPane.WARNING_MESSAGE);
+            return;
+        }
+    }
 
     public void agendarBtn() {
+        
+        verificaCampos();
+        
         java.util.Date data = 
         java.util.Date.from(dataAgen.getValue().atStartOfDay(ZoneId.systemDefault()).toInstant());
         java.sql.Date dataSql = new java.sql.Date(data.getTime());
