@@ -130,11 +130,11 @@ public class CadastrarClienteController implements Initializable {
         txtTelefone.setDisable(false);
         txtEmail.setDisable(false);
         chkAtivo.setDisable(false);
-        btnAlterar.setDisable(false);
         btnSalvar.setDisable(false);
         btnAlterar.setDisable(true);
         btnCancelar.setDisable(false);
         btnNovo.setDisable(true);
+        
     }
     
     public void cancelaCadastro(){
