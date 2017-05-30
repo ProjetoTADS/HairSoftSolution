@@ -5,6 +5,7 @@
  */
 package hairsoftproject;
 
+import static hairsoftproject.DAO.ConexaoMySql.fecharConexao;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Connection;
@@ -82,7 +83,8 @@ public class CadastrarClienteController implements Initializable {
     private CheckBox chkAtivo;
     @FXML
     private Pane pai;
-    @FXML
+    
+            private String verificaCheck;
     //private AnchorPane mestre;
     
     public void carregaCBO(){
@@ -172,6 +174,7 @@ public class CadastrarClienteController implements Initializable {
         btnAlterar.setDisable(true);
         btnSalvar.setDisable(true);
         btnAlterar.setDisable(true);
+
     }
 
     public void salvaDados() throws SQLException{ 
@@ -305,7 +308,14 @@ public class CadastrarClienteController implements Initializable {
                     txtCEP.setText(resultado.getString(10));
                     txtRG.setText(resultado.getString(11));
                     txtEmail.setText(resultado.getString(12));
-
+                    verificaCheck = resultado.getString(13);
+                    
+                    if(verificaCheck.equals("SIM")){
+                          chkAtivo.setSelected(true);
+                    }else{
+                          chkAtivo.setDisable(true);
+                    }
+                    
                     habilitaCampos();
                 
             btnSalvar.setDisable(true);
@@ -313,6 +323,7 @@ public class CadastrarClienteController implements Initializable {
         
             resultado.close();
             prepare2.close();
+            fecharConexao();
         }else
         consulta.close();
         prepare.close();   
@@ -378,7 +389,8 @@ public class CadastrarClienteController implements Initializable {
         
         JOptionPane.showMessageDialog(null, "Alualizado com Sucesso!", "Aviso", JOptionPane.INFORMATION_MESSAGE);
         cancelaCadastro();
-        prepare.close();        
+        prepare.close();   
+        fecharConexao();
         
         }catch(SQLException e){e.printStackTrace(); JOptionPane.showMessageDialog(null, "Falha ao atualizar cadastro do cliente! Contate o suporte.","Aviso",JOptionPane.WARNING_MESSAGE);}
         finally{
