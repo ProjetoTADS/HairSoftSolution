@@ -275,6 +275,11 @@ public class CadastrarClienteController implements Initializable {
     public void btnClickPesquisa(ActionEvent Event) throws IOException{
         
         txtCodigo.setText("");
+                
+        if (txtCPF.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Digite o CPF para pesquisar!","Aviso", JOptionPane.WARNING_MESSAGE);
+            return;
+        }
         
         try{                 
         String sql = "SELECT CPF FROM CLIENTE WHERE CPF =" +txtCPF.getText();
@@ -315,7 +320,7 @@ public class CadastrarClienteController implements Initializable {
             JOptionPane.showMessageDialog(null, "CPF Não Cadastrado!", "Aviso", JOptionPane.INFORMATION_MESSAGE);
         }
         
-        }catch(SQLException e){e.printStackTrace(); JOptionPane.showMessageDialog(null, "Falha ao localozar o cadastro do cliente! Contate o suporte.","Aviso",JOptionPane.WARNING_MESSAGE);}
+        }catch(SQLException e){e.printStackTrace(); JOptionPane.showMessageDialog(null, "Falha ao localizar o cadastro do cliente! Contate o suporte.","Aviso",JOptionPane.WARNING_MESSAGE);}
         finally{
         }
         
