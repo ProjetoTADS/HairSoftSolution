@@ -10,6 +10,7 @@ public class Cliente implements Serializable {
     private String cpf;
     private String endereco;
     private String celular;
+   
 
 //METODO CONSTRUTOR DA CLASSE
     public Cliente(){
@@ -57,9 +58,10 @@ public class Cliente implements Serializable {
         return endereco;
     }
 
-    public void setCelular(String telefone) {
-        this.celular = telefone;
+    public void setCelular(String celular) {
+        this.celular = celular;
     }
+    
 
     @Override
     public String toString() {
